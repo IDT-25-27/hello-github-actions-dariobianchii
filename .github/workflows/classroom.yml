@@ -154,7 +154,18 @@ jobs:
 
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
-      env:
-        runners: check_file,check_name,check_pr,check_types,check_permissions,check_jobs,check_welcome_job,check_runs_on,check_steps,check_gh_pr_comment,check_token,check_pr_url
       with:
-        runners: check_file,check_name,check_pr,check_types,check_permissions,check_jobs,check_welcome_job,check_runs_on,check_steps,check_gh_pr_comment,check_token,check_pr_url
+        runners: 'check_file,check_name,check_pr,check_types,check_permissions,check_jobs,check_welcome_job,check_runs_on,check_steps,check_gh_pr_comment,check_token,check_pr_url'
+      env:
+        CHECK_FILE_RESULTS: "${{steps.check_file.outputs.result}}"
+        CHECK_NAME_RESULTS: "${{steps.check_name.outputs.result}}"
+        CHECK_PR_RESULTS: "${{steps.check_pr.outputs.result}}"
+        CHECK_TYPES_RESULTS: "${{steps.check_types.outputs.result}}"
+        CHECK_PERMISSIONS_RESULTS: "${{steps.check_permissions.outputs.result}}"
+        CHECK_JOBS_RESULTS: "${{steps.check_jobs.outputs.result}}"
+        CHECK_WELCOME_JOB_RESULTS: "${{steps.check_welcome_job.outputs.result}}"
+        CHECK_RUNS_ON_RESULTS: "${{steps.check_runs_on.outputs.result}}"
+        CHECK_STEPS_RESULTS: "${{steps.check_steps.outputs.result}}"
+        CHECK_GH_PR_COMMENT_RESULTS: "${{steps.check_gh_pr_comment.outputs.result}}"
+        CHECK_TOKEN_RESULTS: "${{steps.check_token.outputs.result}}"
+        CHECK_PR_URL_RESULTS: "${{steps.check_pr_url.outputs.result}}"
